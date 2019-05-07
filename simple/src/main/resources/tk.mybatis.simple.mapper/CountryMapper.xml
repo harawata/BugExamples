@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- SQL语句定义在CountryMapper.xml文件中 -->
+<!-- XML的根元素，属性namespace定义了当前XML的命名空间 -->
+<mapper namespace="tk.mybatis.simple.mapper.CountryMapper">
+  <!-- <select>元素为：定义一个SELECT查询 -->
+  <!-- id属性：定义了当前SELECT查询的唯一一个id -->
+  <!-- resultType：定义了当前查询的返回值类型，此处就是指实体类Country -->
+  <!-- 在mybatis-config.xml中设置的包的别名用于这里，如果没有设置别名这里的resultType，将改为 -->
+  <!-- resultType="tk.mybatis.simple.model.CountryMapper" -->
+  <select id="selectAll" resultType="Country">
+		select id,countryname,countrycode from country
+	</select>
+</mapper>

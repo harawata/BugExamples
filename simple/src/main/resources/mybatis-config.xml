@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <!--指定使用LOG4J输出日志-->
+  <settings>
+    <setting name="logImpl" value="LOG4J"/>
+  </settings>
+
+  <!--配置包的别名，通常确定一个类的时候需要使用类的全限定名称，例如tk.mybatis.simple.model.Country。-->
+  <!--在MyBatis中需要频繁用到类的全限定名称，为了方便使用，我们配置tk.mybatis.simple.model包，-->
+  <!--这样配置后，在使用类的时候不需要写包名的部分，只使用Country即可。  -->
+  <typeAliases>
+    <package name="tk.mybatis.simple.model"/>
+  </typeAliases>
+
+  <!--配置数据库的连接  -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC">
+        <property name="" value=""/>
+      </transactionManager>
+      <dataSource type="UNPOOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+        <property name="username" value="root"/>
+        <property name="password" value="12345"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+
+  <!--配置一个包含完整类路径的CountryMapper.xml，这是一个MyBatis的SQL语句和映射配置文件-->
+  <mappers>
+<!--    <mapper resource="tk.mybatis.simple.mapper.CountryMapper.xml"/>-->
+<!--    <mapper resource="tk.mybatis.simple.mapper.CountryMapper.xml"/>-->
+    <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>
+  </mappers>
+</configuration>
